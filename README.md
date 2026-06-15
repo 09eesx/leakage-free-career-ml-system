@@ -18,6 +18,13 @@ The dataset includes:
 - Social/soft skills
 - Mentor feedback (natural language)
 
+---
+
+# Data
+https://www.kaggle.com/competitions/datathon-2026/data
+
+---
+
 Evaluation metric: **Mean Squared Error (MSE)**
 
 ---
