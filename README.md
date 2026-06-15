@@ -56,9 +56,6 @@ LightGBM Classifier (edge-case detection)
 Final Ensemble Output
 
 ```
-
----
-burayı readme formatında düzenle
 ---
 # ⚙️ Key Innovations
 
