@@ -24,14 +24,36 @@ Evaluation metric: **Mean Squared Error (MSE)**
 
 # 🧠 Architecture Overview
 
-                    ┌──────────────────────┐
-                    │  Raw Tabular Data    │
-                    └─────────┬────────────┘
-                              │
-  ┌───────────────────────────┼───────────────────────────┐
-  │                           │                           │
-  ▼                           ▼                           ▼
 
+                      ┌──────────────────────┐
+                      │  Raw Tabular Data    │
+                      └─────────┬────────────┘
+                                │
+    ┌───────────────────────────┼───────────────────────────┐
+    │                           │                           │
+    ▼                           ▼                           ▼
+Tabular Features           NLP Features                Embeddings
+(skills, stats,            (TF-IDF + SVD,             (BERT + PCA)
+interactions,              keyword features)           + clustering)
+engineered metrics)
+│                           │                           │
+└──────────────┬────────────┴────────────┬────────────┘
+▼                         ▼
+Leakage-Free K-Fold Pipeline (5-Fold CV)
+│
+┌────────────┴────────────┐
+▼                         ▼
+CatBoost Regressor      Weighted CatBoost (shift-aware)
+│
+└────────────┬────────────┘
+▼
+LightGBM Classifier (edge-case detection)
+▼
+Final Ensemble Output
+
+
+
+---
 # ⚙️ Key Innovations
 
 ## 🔒 1. Leakage-Free Full Pipeline
