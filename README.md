@@ -34,7 +34,6 @@ Evaluation metric: **Mean Squared Error (MSE)**
     ┌───────────────────────────┼───────────────────────────┐
     │                           │                           │
     ▼                           ▼                           ▼
-```
 
 Tabular Features           NLP Features                Embeddings
 (skills, stats,            (TF-IDF + SVD,             (BERT + PCA)
